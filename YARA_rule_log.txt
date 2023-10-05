@@ -1,0 +1,15 @@
+ubuntu@ubuntu-VirtualBox:~/Downloads$ clamscan -ir -d /home/ubuntu/Downloads/ /home/ubuntu/Downloads/
+/home/ubuntu/Downloads/SSH-One: YARA.SSH_detector.UNOFFICIAL FOUND
+/home/ubuntu/Downloads/unknown_threat.yara: YARA.SSH_detector.UNOFFICIAL FOUND
+/home/ubuntu/Downloads/unknown_threat.yara~: YARA.SSH_detector.UNOFFICIAL FOUND
+
+----------- SCAN SUMMARY -----------
+Known viruses: 1
+Engine version: 0.100.3
+Scanned directories: 1
+Scanned files: 10
+Infected files: 3
+Data scanned: 2.40 MB
+Data read: 2.40 MB (ratio 1.00:1)
+Time: 0.266 sec (0 m 0 s)
+ubuntu@ubuntu-VirtualBox:~/Downloads$ 

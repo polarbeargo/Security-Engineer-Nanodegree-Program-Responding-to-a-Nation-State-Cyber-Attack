@@ -1,0 +1,2 @@
+one more suspicious file which should have been a cause of infection but managed to defeat our ClamAV scan would be SSH-One executable file.
+In this executable file we can see embedded callout URLs http://darklord.com::7758/SSH-T, http://darklord.com::7758/SSH-One hardcoded in this file. This callout domain is the Command & control server of the National Peace agency
