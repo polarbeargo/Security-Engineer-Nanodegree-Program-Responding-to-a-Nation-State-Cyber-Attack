@@ -1,5 +1,5 @@
 # Security Engineer Nanodegree Program Project: Responding to a Nation State Cyber Attack  
-
+[image1]: ./starter/section_2/succesful_ssh_logon.png
 ### Threat Detection
 
 - ClamAV scan: Perform clamscan on the ‘Downloads’ directory.
@@ -15,11 +15,28 @@ clamscan -i -r /home/ubuntu/Downloads/
 vi unknown_threat.yara
 ```
 [unknown_threat.yara](unknown_threat.yara)
+- Run clamscan under unknown_threat.yara rule that we created.
 
 ```
 clamscan -ir -d /home/ubuntu/Downloads/ /home/ubuntu/Downloads/
 ```
 [YARA_rule_log.txt](YARA_rule_log.txt)
 ### Threat Mitigation  
+
+- Implement HIDS: Open up Firefox and type the address localhost/ossec. This will launch the Ossec UI. 
+
+    - Connecting to the virtual machine via SSH and notice the new login entry created in the IDS web UI.
+
+```
+ssh ubuntu@192.168.56.5
+```
+![image1]
+- Locate Suspicious IP
+
+
+- IPtables Rule
+
+- Detect Backdoor Username, Process & Port
+- Disable SSH Root Access
 
 ### Hardening
