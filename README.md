@@ -1,5 +1,8 @@
 # Security Engineer Nanodegree Program Project: Responding to a Nation State Cyber Attack  
 [image1]: ./starter/section_2/succesful_ssh_logon.png
+[image2]: ./starter/section_2/attacker_IP.png
+[image3]: ./starter/section_2/Iptable_rule.png
+[image4]: ./starter/section_2/remote_config_change.png
 ### Threat Detection
 
 - ClamAV scan: Perform clamscan on the ‘Downloads’ directory.
@@ -31,12 +34,27 @@ clamscan -ir -d /home/ubuntu/Downloads/ /home/ubuntu/Downloads/
 ssh ubuntu@192.168.56.5
 ```
 ![image1]
-- Locate Suspicious IP
+- Locate Suspicious IP:   
+Since the attack happened in the year 2020, and we use the captured the OVA image. We looking for the logs during that time frame.
 
+[attacker_IP.txt](attacker_IP.txt)    
+![image2]
+- IPtables Rule:  
+Identified the attacking IP address, create an IPtables rule to block any SSH connection requests from this host forever.
 
-- IPtables Rule
+[Iptable_rule.txt](Iptable_rule.txt)
+![image3]
+- Detect Backdoor Username, Process & Port:
+    - Username: root
+    - Process: voldemort
+    - Port:
 
-- Detect Backdoor Username, Process & Port
-- Disable SSH Root Access
+- Disable SSH Root Access: 
+    - Disable SSH root access by editing the sshd_config file.
 
+![image4]  
 ### Hardening
+- OpenVAS Scan
+- Patching Apache
+- De-Privilege Apache Account
+- 
