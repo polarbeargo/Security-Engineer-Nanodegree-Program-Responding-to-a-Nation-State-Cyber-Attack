@@ -3,6 +3,7 @@
 [image2]: ./starter/section_2/attacker_IP.png
 [image3]: ./starter/section_2/Iptable_rule.png
 [image4]: ./starter/section_2/remote_config_change.png
+[image5]: ./starter/section_2/openvas_vulnerability_report.png
 ### Threat Detection
 
 - ClamAV scan: Perform clamscan on the ‘Downloads’ directory.
@@ -53,8 +54,9 @@ Identified the attacking IP address, create an IPtables rule to block any SSH co
     - Disable SSH root access by editing the sshd_config file.
 
 ![image4]  
-### Hardening
-- OpenVAS Scan
-- Patching Apache
+### Hardening  
+- OpenVAS Scan: Perform an OpenVAS scan on the target machine and identify the vulnerability that is exploited by the attacker.
+![image5]  
+- Patching Apache  
+
 - De-Privilege Apache Account
-- 
