@@ -4,6 +4,12 @@
 [image3]: ./starter/section_2/Iptable_rule.png
 [image4]: ./starter/section_2/remote_config_change.png
 [image5]: ./starter/section_2/openvas_vulnerability_report.png
+[image6]: ./starter/section_2/ServerTokens.png
+[image7]: ./starter/section_2/ServerSignature.png
+[image8]: ./starter/section_2/before.png
+[image9]: ./starter/section_2/After.png
+[image10]: ./starter/section_2/DePrivilegeApacheAccount.png
+[image11]: ./starter/section_2/test.png
 ### Threat Detection
 
 - ClamAV scan: Perform clamscan on the ‘Downloads’ directory.
@@ -59,4 +65,67 @@ Identified the attacking IP address, create an IPtables rule to block any SSH co
 ![image5]  
 - Patching Apache  
 
-- De-Privilege Apache Account
+    1. By using curl --head localhost, it can display the HTTP headers of the web server. The output should look like this: 
+
+```
+Server: Apache/2.4.7 (Ubuntu)
+```
+![image8]   
+2. Edit Apache server configuration file:  
+
+```
+su gedit /etc/apache2/conf-enabled/security.conf 
+```
+
+
+3. Scroll down to the “ServerTokens” section where you’ll probably see multiple lines commented out stating “ServerTokens” and different options. Set to Prod.
+
+```
+ServerTokens Prod
+```
+![image6]
+
+4. The next section down should be the “ServerSignature” section set to Off. 
+
+```
+ServerSignature Off
+```
+![image7]
+
+5. Exit the file and save changes.
+
+6. Restart Apache for the changes to take effect.
+
+7. Recheck server HTTP headers with the following:
+```
+curl --head localhost
+```
+should see the following:
+```
+Server: Apache
+```
+![image9] 
+
+- De-Privilege Apache Account:  
+Run the following to create a new group and user for Apache:
+```
+sudo groupadd apache-group  
+sudo adduser apache-user
+sudo usermod -g apache-group apache-user
+sudo gedit envvars
+export APACHE_RUN_USER = apache-user
+export APACHE_RUN_GROUP = apache-group
+sudo service apache2 restart
+```
+![image10] 
+## test:
+```
+grep -w apache-group /etc/group
+```
+
+show apache-group:x:1001:
+```
+id apache-user
+```
+show uid=1001(apache-user) gid=1001(apache-group) groups=1001(apache-group)
+![image11] 
