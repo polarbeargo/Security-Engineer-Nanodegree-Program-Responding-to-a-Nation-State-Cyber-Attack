@@ -1,0 +1,20 @@
+
+1. By using curl --head localhost, it can display the HTTP headers of the web server. The output should look like this: 
+Server: Apache/2.4.7 (Ubuntu)
+
+2. Edit Apache server configuration file:
+su gedit /etc/apache2/conf-enabled/security.conf 
+
+3. Scroll down to the “ServerTokens” section where you’ll probably see multiple lines commented out stating “ServerTokens” and different options.
+ServerTokens Prod
+
+4. The next section down should be the “ServerSignature” section. 
+ServerSignature Off
+
+5. Exit the file and save changes.
+
+6. Restart Apache for the changes to take effect
+
+7. Recheck server HTTP headers 
+curl --head localhost should see the following:
+Server: Apache

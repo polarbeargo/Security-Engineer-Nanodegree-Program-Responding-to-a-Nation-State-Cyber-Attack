@@ -1,0 +1,13 @@
+sudo groupadd apache-group
+sudo adduser apache-user
+sudo usermod -g apache-group apache-user
+sudo nano envvars
+export APACHE_RUN_USER = apache-user
+export APACHE_RUN_GROUP = apache-group
+sudo service apache2 restart
+## test:
+grep -w apache-group /etc/group
+show apache-group:x:1001:
+
+id apache-user
+show uid=1001(apache-user) gid=1001(apache-group) groups=1001(apache-group)
