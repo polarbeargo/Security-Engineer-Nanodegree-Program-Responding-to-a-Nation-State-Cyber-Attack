@@ -12,6 +12,10 @@
 [image11]: ./starter/section_2/test.png
 [image12]: ./starter/section_2/unknown_threatYara.png
 [image13]: ./starter/section_2/YARA.png
+[image14]: ./starter/section_2/netstat.png
+[image15]: ./starter/section_2/netstat2.png
+[image16]: ./starter/section_2/top.png
+[image17]: ./starter/section_2/top2.png
 ### Threat Detection
 
 - ClamAV scan: Perform clamscan on the ‘Downloads’ directory.
@@ -56,10 +60,12 @@ Identified the attacking IP address, create an IPtables rule to block any SSH co
 
 [Iptable_rule.txt](Iptable_rule.txt)
 ![image3]
-- Detect Backdoor Username, Process & Port:
-    - Username: root
-    - Process: voldemort
-    - Port:
+- Detect Backdoor Username, Process & Port:  
+    This part from knowledge hub seems the current VM there is not running process for the malicious user. Also checked all the commands as the following:
+![image14]
+![image15]
+![image17]
+![image16]  
 
 - Disable SSH Root Access: 
     - Disable SSH root access by editing the sshd_config file.
