@@ -10,6 +10,8 @@
 [image9]: ./starter/section_2/After.png
 [image10]: ./starter/section_2/DePrivilegeApacheAccount.png
 [image11]: ./starter/section_2/test.png
+[image12]: ./starter/section_2/unknown_threatYara.png
+[image13]: ./starter/section_2/YARA.png
 ### Threat Detection
 
 - ClamAV scan: Perform clamscan on the ‘Downloads’ directory.
@@ -22,15 +24,18 @@ clamscan -i -r /home/ubuntu/Downloads/
 [suspicious_file_report.txt](suspicious_file_report.txt)
 - Yara Rule Creation: Create YARA rule to detect the presence of the executable file SSH-One in the ‘Downloads’ directory.
 ```
-vi unknown_threat.yara
+gedit unknown_threat.yara
 ```
-[unknown_threat.yara](unknown_threat.yara)
+[unknown_threat.yara](unknown_threat.yara)  
+![image12]
+
 - Run clamscan under unknown_threat.yara rule that we created.
 
 ```
 clamscan -ir -d /home/ubuntu/Downloads/ /home/ubuntu/Downloads/
 ```
 [YARA_rule_log.txt](YARA_rule_log.txt)
+![image13]
 ### Threat Mitigation  
 
 - Implement HIDS: Open up Firefox and type the address localhost/ossec. This will launch the Ossec UI. 
@@ -95,7 +100,9 @@ ServerSignature Off
 5. Exit the file and save changes.
 
 6. Restart Apache for the changes to take effect.
-
+```
+sudo service apache2 restart
+```
 7. Recheck server HTTP headers with the following:
 ```
 curl --head localhost

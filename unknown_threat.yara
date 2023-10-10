@@ -5,8 +5,9 @@ rule SSH_detector {
         strings:
                 $path = "/tmp/SSH-One" nocase
                 $port = "7758"
+		$rule = "http://darkl0rd.com"
                 
         condition:
-                $path and $port
+                $path and $port and $rule
 
 }
