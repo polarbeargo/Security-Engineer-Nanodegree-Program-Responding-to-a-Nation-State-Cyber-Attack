@@ -87,9 +87,9 @@ Then we further investigate the process and port that is running by voldemort.
 ps -u voldemort
 ```
 
-![image17]
-![image18]
-![image19]
+![image17]  
+![image18]  
+![image19]  
 
     - Username: voldemort
     - Process: 
