@@ -12,10 +12,13 @@
 [image11]: ./starter/section_2/test.png
 [image12]: ./starter/section_2/unknown_threatYara.png
 [image13]: ./starter/section_2/YARA.png
-[image14]: ./starter/section_2/netstat.png
-[image15]: ./starter/section_2/netstat2.png
-[image16]: ./starter/section_2/top.png
-[image17]: ./starter/section_2/top2.png
+[image14]: ./starter/section_2/suspicious_usr.png
+[image15]: ./starter/section_2/uid.png
+[image16]: ./starter/section_2/becomeRoot.png
+[image17]: ./starter/section_2/process.png
+[image18]: ./starter/section_2/process2.png
+[image19]: ./starter/section_2/process3.png
+
 ### Threat Detection
 
 - ClamAV scan: Perform clamscan on the ‘Downloads’ directory.
@@ -61,11 +64,36 @@ Identified the attacking IP address, create an IPtables rule to block any SSH co
 [Iptable_rule.txt](Iptable_rule.txt)
 ![image3]
 - Detect Backdoor Username, Process & Port:  
-    This part from knowledge hub seems the current VM there is not running process for the malicious user. Also checked all the commands as the following:
-![image14]
-![image15]
+    
+By use the following command:
+```
+cat /etc/passwd
+```  
+We can see the backdoor username is voldemort and its uid is 0.  
+![image14]  
+
+Futher look into the year 2020 /var/log/auth.log by using the following command:
+
+```
+cat /var/log/auth.log | grep 20
+```
+We can see the voldemort trying login in the system as root from identify its uid.
+
+![image15]  
+![image16] 
+Then we further investigate the process and port that is running by voldemort.
+
+```
+ps -u voldemort
+```
+
 ![image17]
-![image16]  
+![image18]
+![image19]
+
+    - Username: voldemort
+    - Process: 
+    - Port:
 
 - Disable SSH Root Access: 
     - Disable SSH root access by editing the sshd_config file.
