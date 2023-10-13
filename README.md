@@ -95,7 +95,7 @@ ps -u voldemort
 ![image19]   
 ![image20]
 ![image21]  
-Also, we can use the following command to see the process and port that is listen by voldemort.
+Also, we can use the following command to see the malicious process and port that is listen by voldemort.
 ````
 sudo netstat -tulpn
 ````
