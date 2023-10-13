@@ -18,6 +18,9 @@
 [image17]: ./starter/section_2/process.png
 [image18]: ./starter/section_2/process2.png
 [image19]: ./starter/section_2/process3.png
+[image20]: ./starter/section_2/process4.png
+[image21]: ./starter/section_2/process5.png
+[image22]: ./starter/section_2/suspicious.png
 
 ### Threat Detection
 
@@ -81,19 +84,26 @@ We can see the voldemort trying login in the system as root from identify its ui
 
 ![image15]  
 ![image16] 
-Then we further investigate the process and port that is running by voldemort.
+Then we further investigate the processes that is running by voldemort.
 
 ```
 ps -u voldemort
 ```
 
 ![image17]  
-![image18]  
-![image19]  
-
+![image18] 
+![image19]   
+![image20]
+![image21]  
+Also, we can use the following command to see the process and port that is listen by voldemort.
+````
+sudo netstat -tulpn
+````
+```
+![image22]
     - Username: voldemort
-    - Process: 
-    - Port:
+    - Process: remotesec
+    - Port: 56565
 
 - Disable SSH Root Access: 
     - Disable SSH root access by editing the sshd_config file.
