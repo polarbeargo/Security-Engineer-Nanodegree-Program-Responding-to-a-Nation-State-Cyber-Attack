@@ -99,8 +99,9 @@ Also, we can use the following command to see the process and port that is liste
 ````
 sudo netstat -tulpn
 ````
-```
-![image22]
+
+![image22]  
+
     - Username: voldemort
     - Process: remotesec
     - Port: 56565
