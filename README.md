@@ -91,9 +91,9 @@ sudo netstat -tulpn
 ````
 
 ![image22]  
-
-    - Username: darklord
-    - Process: remotesec
+[backdoor_details.txt](backdoor_details.txt)  
+    - Username: darklord  
+    - Process: remotesec  
     - Port: 56565
 
 - Disable SSH Root Access: 
