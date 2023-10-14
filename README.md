@@ -72,7 +72,7 @@ By use the following command:
 ```
 cat /etc/passwd
 ```  
-We can see the backdoor username is voldemort and its uid is 0.  
+We can see the attackers is voldemort and its uid is 0 and the rouge username added by the attackers voldemort is darklord.
 ![image14]  
 
 Futher look into the year 2020 /var/log/auth.log by using the following command:
@@ -84,17 +84,7 @@ We can see the voldemort trying login in the system as root from identify its ui
 
 ![image15]  
 ![image16] 
-Then we further investigate the processes that is running by voldemort.
-
-```
-ps -u voldemort
-```
-
-![image17]  
-![image18] 
-![image19]   
-![image20]
-![image21]  
+ 
 Also, we can use the following command to see the malicious process and port that is listen by voldemort.
 ````
 sudo netstat -tulpn
@@ -102,7 +92,7 @@ sudo netstat -tulpn
 
 ![image22]  
 
-    - Username: voldemort
+    - Username: darklord
     - Process: remotesec
     - Port: 56565
 
